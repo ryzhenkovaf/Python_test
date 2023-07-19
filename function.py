@@ -37,7 +37,7 @@ def showNote(text):
 
 
 def refactorNote(text):
-    id = input('Введите id заметки: ')
+    id = input('Введите id необходимой заметки: ')
     array = fileWorker.readFile()
     logic = True
     for notes in array:
@@ -48,13 +48,12 @@ def refactorNote(text):
                 Note.Note.setTiitle(notes, note.getTitle())
                 Note.Note.setBody(notes, note.getBody())
                 Note.Note.setDate(notes)
-                print('Заметка изменена')
+                print('Заметка изменена...')
             if text == 'del':
                 array.remove(notes)
-                print('Заметка удалена')
+                print('Заметка удалена...')
             if text == 'showNote':
                 print(Note.Note.mapNote(notes))
     if logic == True:
-        print('Такой заметки нет')
+        print('Такой заметки нет, возможно, вы ввели неверный id')
     fileWorker.writeFile(array, 'a')
-

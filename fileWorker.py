@@ -1,5 +1,6 @@
 import Note
 
+
 def writeFile(array, mode):
     file = open("notes.csv", mode='w', encoding='utf-8')
     file.seek(0)
@@ -9,6 +10,7 @@ def writeFile(array, mode):
         file.write(Note.Note.toString(notes))
         file.write('\n')
     file.close
+
 
 def readFile():
     try:
@@ -21,7 +23,7 @@ def readFile():
                 id = split_n[0], title = split_n[1], body = split_n[2], date = split_n[3])
             array.append(note)
     except Exception:
-        print('Нет заметок...')
+        print('Нет сохраненных заметок...')
     finally:
         return array
     
